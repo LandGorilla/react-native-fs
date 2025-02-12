@@ -164,10 +164,10 @@ public class Uploader extends AsyncTask<UploadParams, int[], UploadResult> {
                 int fileLength = (int) file.length();
                 int bytes_read = 0;
                 BufferedInputStream bufInput = new BufferedInputStream(new FileInputStream(file));
-                int buffer_size =(int) Math.ceil(fileLength / 100.f);
-                if(buffer_size > run.freeMemory() / 10.f) {
-                    buffer_size = (int) Math.ceil(run.freeMemory() / 10.f);
-                }
+                int buffer_size =16384;
+//                if(buffer_size > run.freeMemory() / 10.f) {
+//                    buffer_size = (int) Math.ceil(run.freeMemory() / 10.f);
+//                }
                 byte[] buffer = new byte[buffer_size];
                 while ((bytes_read = bufInput.read(buffer)) != -1) {
 
